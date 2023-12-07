@@ -1,0 +1,58 @@
+
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <style>
+            body{
+                background-color: rgb(27, 27, 97);
+            }
+            .nav {
+                background-color: #faf9f6;
+                overflow: hidden;
+            }
+
+              /* Style the links inside the navigation bar */
+            .nav > img {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                width: 50px;
+                height: 50px;
+            }
+            img {
+                border-radius: 50%;
+            }
+            a {
+                color: white;
+            }
+
+        </style> 
+    </head>
+    <body>
+        <nav>
+            <div class="nav">
+                <h1>Users</h1>
+            </div>
+        </nav> 
+        <% users.forEach(user=> { %>
+            <img height=70 width=70 src="/photos/<%= user.username %>/profile.jpeg" alt="profile picture">
+                <a href="/feed?username=<%= user.username %>"><%= user.username %></a>
+                <form action="/form?username=<%= user.username %>" enctype="multipart/form-data" method="post">
+                <div><input name="image" type="file" />
+                <input type="submit" value="Upload" />
+                </div>
+                </form>
+            <% }); %>
+        <header>
+            
+        </header>
+        <main>
+    
+        </main>
+        <footer>
+            <caption>FSWD</caption>
+        </footer>
+    </body>
+    </html>
